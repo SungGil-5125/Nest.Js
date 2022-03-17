@@ -25,6 +25,8 @@ export class LoginController {
 }
 ```
 컨트롤러를 생성한 후에는 반드시 Nest에게도 존재를 알려야 한다.
+
 <br>
+
 새로 생긴 컨트롤러는 module에 추가 해야 한다.
 
