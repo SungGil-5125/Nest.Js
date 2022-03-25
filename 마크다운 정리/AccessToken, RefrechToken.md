@@ -23,12 +23,13 @@ Refresh Token은 Access Token과 똑같은 형태의 jwt이다. 처음에 로그
     10. 서버는 AccessToken이 만료됨을 확인하고 권함없음을 신호로 보낸다.
     11. 위 내용에 포함.
 
-    * AccessToken이 만료가 될때마다 과정 9~11을 거칠 필요는 없다. 사용자 프론트에서 AccessToken의 payload를 통해 유효기한을 알 수 있다. 따라서 프론트에서 토큰이 API요청전에 만료됐다면 바로 재발급 요청을 할 수도 있다. 
+    * AccessToken이 만료가 될때마다 과정 9~11을 거칠 필요는 없다. 사용자 프론트에서 AccessToken의 payload를 통해 유효기한을 알 수 있다. 
+      따라서 프론트에서 토큰이 API요청전에 만료됐다면 바로 재발급 요청을 할 수도 있다. 
 
-    12.  사용자는 Refresh Token과 Access Token을 함께 서버로 보낸다.
-    13.  서버는 받은 Access Token이 조작되지 않았는지 확인한후, Refresh Token과 사용자의 DB에 저장되어 있던 Refresh Token을 비교한다. 
+    1.   사용자는 Refresh Token과 Access Token을 함께 서버로 보낸다.
+    2.   서버는 받은 Access Token이 조작되지 않았는지 확인한후, Refresh Token과 사용자의 DB에 저장되어 있던 Refresh Token을 비교한다. 
          Token이 동일하고 유효기간도 지나지 않았다면 새로운 Access Token을 발급해줍니다.
-    14.  서버는 새로운 Access Token을 헤더에 실어 다시 API 요청을 진행합니다. 
+    3.   서버는 새로운 Access Token을 헤더에 실어 다시 API 요청을 진행합니다. 
 
    <br>
 
@@ -37,7 +38,7 @@ Refresh Token은 Access Token과 똑같은 형태의 jwt이다. 처음에 로그
 (단점) : 구현이 좀 복잡하다.(프론트 백엔드 전부)
          Access Token이 만료될 때마다 새롭게 발급되는 과정에서 생기는 HTTP 요청 횟수가 많다.
          이는 서버의 자원 낭비로 귀결된다.
-         
+
 <br>
 
 그냥 읽으면 금방 까먹으니까 직접 적으면서 정리 했습니다.
